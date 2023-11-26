@@ -12,34 +12,42 @@ public class PartidaDardos {
 
 	private static int puntuacionRecord;
 	private static String nombreJugadorRecord;
-
-	public static void comprobarRecord(int puntuacionActual, String name) {
-		if (puntuacionRecord < puntuacionActual) {
+	
+	private static int recordDianas;
+	private static String jugadorRecordDianas;
+	
+	//COMPROBAMOS SI SE HA SUPERADO EL RECORD Y MOSTRAMOS LA INFORMACIÓN
+	public static boolean comprobarRecord(int puntuacion, String name) {
+		if (puntuacion > puntuacionRecord) {
 			System.out.println("\n¡RECORD DE PUNTOS!");
 			System.out.println("Se ha superado el record registrado.\nActualmente era de " + puntuacionRecord
 					+ " y pertecia a " + nombreJugadorRecord);
-			puntuacionRecord = puntuacionActual;
+			puntuacionRecord = puntuacion;
 			nombreJugadorRecord = name;
 			System.out.println("El nuevo record es: " + puntuacionRecord + "\nEl record lo ha superado el jugador "
 					+ nombreJugadorRecord);
+			return true;
+		} else {
+			return false;
 		}
 	}
-
-	private static int recordDianas;
-	private static String jugadorRecordDianas;
-
-	public static void comprobarNDianas(int NDianas, String name) {
-		if (recordDianas < NDianas) {
+	
+	//COMPROBAMOS SI SE HA SUPERADO EL RECORD DE DIANAS Y MOSTRAMOS LA INFORMACIÓN
+	public static boolean comprobarDianas(int numeroDianas, String name) {
+		if (numeroDianas > recordDianas) {
 			System.out.println("\n¡RECORD DE DIANAS!");
 			System.out.println("Se ha superado el record registrado.\nActualmente era de " + recordDianas
 					+ " y pertecia a " + jugadorRecordDianas);
-			recordDianas = NDianas;
+			recordDianas = numeroDianas;
 			jugadorRecordDianas = name;
 			System.out.println("El nuevo record es: " + recordDianas + "\nEl record lo ha superado el jugador "
 					+ jugadorRecordDianas);
+			return true;
+		} else {
+			return false;
 		}
 	}
-
+	
 	static int numeroDeRondas = 10;
 
 	public static void main(String[] args) {
@@ -83,18 +91,19 @@ public class PartidaDardos {
 
 			if (dianasP1 > dianasP2) {
 				System.out.println("Ha dado más veces a la diana: " + player1.getName());
-				comprobarNDianas(dianasP1, player1.getName());
+				comprobarDianas(dianasP1, player1.getName());
 			} else if (dianasP1 < dianasP2) {
 				System.out.println("Ha dado más veces a la diana: " + player2.getName());
-				comprobarNDianas(dianasP2, player2.getName());
+				comprobarDianas(dianasP2, player2.getName());
 			} else {
 				System.out.println("Han empatado en el numero de dianas los dos jugadores");
-				comprobarNDianas(dianasP1, player1.getName() + " y " + player2.getName());
+				comprobarDianas(dianasP1, player1.getName() + " y " + player2.getName());
 			}
 
 			System.out.print("\n¿Quieres reiniciar la partida? ");
 			reinicio = sc.nextLine().toLowerCase();
 		} while (reinicio.equals("si"));
+		sc.close();
 
 	}
 
