@@ -80,5 +80,8 @@ public class Jugador {
 		}
 		return dianas;
 	}
+	public void reiniciarPartida() {
+		
+	}
 
 }
