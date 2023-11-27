@@ -17,15 +17,15 @@ public class PartidaDardos {
 	private static String jugadorRecordDianas;
 	
 	/**COMPROBAMOS SI SE HA SUPERADO EL RECORD Y MOSTRAMOS LA INFORMACIÓN
-	 * @param puntuacion Sirve para introducir la puntuacion a comprobar
-	 * @param name Sirve para introducir el nombre del jugador que ha podido superar el record */
-	public static boolean comprobarRecord(int puntuacion, String name) {
-		if (puntuacion > puntuacionRecord) {
+	 * @param player Recibe un parametro de tipo jugador para luego si necesitamos el nombre
+	 * la puntuación o similar la extraemos de la clase Jugador */
+	public static boolean comprobarRecord(Jugador player) {
+		if (player.calcularPuntuacion() > puntuacionRecord) {
 			System.out.println("\n¡RECORD DE PUNTOS!");
 			System.out.println("Se ha superado el record registrado.\nActualmente era de " + puntuacionRecord
 					+ " y pertecia a " + nombreJugadorRecord);
-			puntuacionRecord = puntuacion;
-			nombreJugadorRecord = name;
+			puntuacionRecord = player.calcularPuntuacion();
+			nombreJugadorRecord = player.getName();
 			System.out.println("El nuevo record es: " + puntuacionRecord + "\nEl record lo ha superado el jugador "
 					+ nombreJugadorRecord);
 			return true;
@@ -35,15 +35,15 @@ public class PartidaDardos {
 	}
 	
 	/**COMPROBAMOS SI SE HA SUPERADO EL RECORD DE DIANAS Y MOSTRAMOS LA INFORMACIÓN
-	 * @param numeroDianas Introduce al metodo el numero de veces que se ha dado la diana
-	 * @param name Introduce el nombre del jugador que ha podido superar el record de dianas */
-	public static boolean comprobarDianas(int numeroDianas, String name) {
-		if (numeroDianas > recordDianas) {
+	 * @param player Recibe un parametro de tipo jugador para luego si necesitamos el nombre
+	 * la puntuación o similar la extraemos de la clase Jugador */
+	public static boolean comprobarDianas(Jugador player) {
+		if (player.calcularDianas() > recordDianas) {
 			System.out.println("\n¡RECORD DE DIANAS!");
 			System.out.println("Se ha superado el record registrado.\nActualmente era de " + recordDianas
 					+ " y pertecia a " + jugadorRecordDianas);
-			recordDianas = numeroDianas;
-			jugadorRecordDianas = name;
+			recordDianas = player.calcularDianas();
+			jugadorRecordDianas = player.getName();
 			System.out.println("El nuevo record es: " + recordDianas + "\nEl record lo ha superado el jugador "
 					+ jugadorRecordDianas);
 			return true;
@@ -79,13 +79,13 @@ public class PartidaDardos {
 			System.out.println("\n");
 			if (puntuacion1 > puntuacion2) {
 				System.out.println("Ha ganado: " + player1.getName());
-				comprobarRecord(puntuacion1, player1.getName());
+				comprobarRecord(player1);
 			} else if (puntuacion1 < puntuacion2) {
 				System.out.println("Ha ganado: " + player2.getName());
-				comprobarRecord(puntuacion2, player2.getName());
+				comprobarRecord(player2);
 			} else {
 				System.out.println("Los dos jugadores han conseguido la misma puntuación");
-				comprobarRecord(puntuacion1, player1.getName() + " y " + player2.getName());
+				comprobarRecord(player1);
 			}
 
 			// COMPROBAMOS EL NUMERO DE DIANAS
@@ -95,13 +95,13 @@ public class PartidaDardos {
 
 			if (dianasP1 > dianasP2) {
 				System.out.println("Ha dado más veces a la diana: " + player1.getName());
-				comprobarDianas(dianasP1, player1.getName());
+				comprobarDianas(player1);
 			} else if (dianasP1 < dianasP2) {
 				System.out.println("Ha dado más veces a la diana: " + player2.getName());
-				comprobarDianas(dianasP2, player2.getName());
+				comprobarDianas(player2);
 			} else {
 				System.out.println("Han empatado en el numero de dianas los dos jugadores");
-				comprobarDianas(dianasP1, player1.getName() + " y " + player2.getName());
+				comprobarDianas(player1);
 			}
 
 			System.out.print("\n¿Quieres reiniciar la partida? ");
