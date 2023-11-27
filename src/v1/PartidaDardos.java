@@ -16,7 +16,9 @@ public class PartidaDardos {
 	private static int recordDianas;
 	private static String jugadorRecordDianas;
 	
-	//COMPROBAMOS SI SE HA SUPERADO EL RECORD Y MOSTRAMOS LA INFORMACIÓN
+	/**COMPROBAMOS SI SE HA SUPERADO EL RECORD Y MOSTRAMOS LA INFORMACIÓN
+	 * @param puntuacion Sirve para introducir la puntuacion a comprobar
+	 * @param name Sirve para introducir el nombre del jugador que ha podido superar el record */
 	public static boolean comprobarRecord(int puntuacion, String name) {
 		if (puntuacion > puntuacionRecord) {
 			System.out.println("\n¡RECORD DE PUNTOS!");
@@ -32,7 +34,9 @@ public class PartidaDardos {
 		}
 	}
 	
-	//COMPROBAMOS SI SE HA SUPERADO EL RECORD DE DIANAS Y MOSTRAMOS LA INFORMACIÓN
+	/**COMPROBAMOS SI SE HA SUPERADO EL RECORD DE DIANAS Y MOSTRAMOS LA INFORMACIÓN
+	 * @param numeroDianas Introduce al metodo el numero de veces que se ha dado la diana
+	 * @param name Introduce el nombre del jugador que ha podido superar el record de dianas */
 	public static boolean comprobarDianas(int numeroDianas, String name) {
 		if (numeroDianas > recordDianas) {
 			System.out.println("\n¡RECORD DE DIANAS!");
