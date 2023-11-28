@@ -49,27 +49,27 @@ public class Jugador {
 			switch (multiplicador) {
 			case 2, 4:
 				puntuacion = puntuacion * 1;
-				resultadosPartida[i] = resultadosPartida[i] + "-";
+				resultadosPartida[i] = resultadosPartida[i] + "- ";
 				break;
 			case 1:
 				puntuacion = puntuacion * 2;
-				resultadosPartida[i] = resultadosPartida[i] + "x2";
+				resultadosPartida[i] = resultadosPartida[i] + "x2 ";
 				break;
 			case 3:
 				puntuacion = puntuacion * 3;
-				resultadosPartida[i] = resultadosPartida[i] + "x3";
+				resultadosPartida[i] = resultadosPartida[i] + "x3 ";
 				break;
 			case 5:
 				puntuacion = 25;
-				resultadosPartida[i] = resultadosPartida[i] + "D";
+				resultadosPartida[i] = resultadosPartida[i] + "D ";
 				break;
 			case 6:
 				puntuacion = 50;
-				resultadosPartida[i] = resultadosPartida[i] + "D";
+				resultadosPartida[i] = resultadosPartida[i] + "D ";
 				break;
 			case 0:
 				puntuacion = puntuacion * 0;
-				resultadosPartida[i] = resultadosPartida[i] + "-";
+				resultadosPartida[i] = resultadosPartida[i] + "- ";
 				break;
 			default:
 				break;
@@ -102,13 +102,37 @@ public class Jugador {
 	 * array y la puntuacion total llamando al metodo calcularPuntuacion.
 	 */
 	public void mostrarPuntuacion() {
-		System.out.println("\nPuntuacion de " + name);
+		System.out.println("\nPuntuaciones de " + name);
 		System.out.println(Arrays.toString(puntuacion));
-		for (int i = 0; i < resultadosPartida.length; i++) {
-			System.out.print(resultadosPartida[i]+" | ");
-		}
-		//System.out.println(Arrays.toString(resultadosPartida));
+		
 		System.out.println("\nLa puntuación total de " + name + " es: " + calcularPuntuacion());
+		System.out.println(calcularTiradas());
+		//System.out.println("Ha dado a la diana: "+numeroDianas+" veces.\nHa sacado doble: "+numeroDobles+" veces.\nHa sacado triple: "+numerotriples+" veces");
+	}
+	
+	public String calcularTiradas() {
+		String split = Arrays.toString(resultadosPartida);
+		split = split.replaceAll(",", "");
+		split = split.replaceAll(" ", "");
+		int dianas = 0, dobles = 0, triples = 0;
+		String A = "";
+		
+		for (int i = 0; i < split.length(); i++) {
+			A = new StringBuilder(split.charAt(i)).toString();
+			if (A.equals("D")) {
+				dianas++;
+				System.out.println("D");
+			}
+			if (A.equals("x2")) {
+				dobles++;
+				System.out.println("x2");
+			}
+			if (A.equals("x3")) {
+				dobles++;
+				System.out.println("x3");
+			}
+		}
+		return "Ha sacado "+dianas+" dianas.\nHa sacado "+dobles+" dobles.\nHa sacado "+triples+" triples.";
 	}
 
 	/**

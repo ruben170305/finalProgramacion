@@ -3,7 +3,7 @@
  */
 package v2;
 
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * 
@@ -72,6 +72,7 @@ public class PartidaDardos {
 				player1.jugarTurno(i);
 				player2.jugarTurno(i);
 			}
+			
 			player1.mostrarPuntuacion();
 			player2.mostrarPuntuacion();
 

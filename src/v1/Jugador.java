@@ -54,7 +54,7 @@ public class Jugador {
 			resultadosPartida[i] = "D";
 			break;
 		case 0:
-			puntuacion = puntuacion * 0;
+			puntuacion = 0;
 			resultadosPartida[i] = "-";
 			break;
 		default:
