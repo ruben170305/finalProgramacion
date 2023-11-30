@@ -18,7 +18,10 @@ public class PartidaDardos {
 	
 	/**COMPROBAMOS SI SE HA SUPERADO EL RECORD Y MOSTRAMOS LA INFORMACIÓN
 	 * @param player Recibe un parametro de tipo jugador para luego si necesitamos el nombre
-	 * la puntuación o similar la extraemos de la clase Jugador */
+	 * la puntuación o similar la extraemos de la clase Jugador 
+	 * @return Devuelve un boolean por si se cumple o no la condición. En el caso de este
+	 * metodo no lo voy a usar posteriormente ya que el metodo actualiza los records
+	 * */
 	public static boolean comprobarRecord(Jugador player) {
 		if (player.calcularPuntuacion() > puntuacionRecord) {
 			System.out.println("\n¡RECORD DE PUNTOS!");
@@ -37,7 +40,10 @@ public class PartidaDardos {
 	
 	/**COMPROBAMOS SI SE HA SUPERADO EL RECORD DE DIANAS Y MOSTRAMOS LA INFORMACIÓN
 	 * @param player Recibe un parametro de tipo jugador para luego si necesitamos el nombre
-	 * la puntuación o similar la extraemos de la clase Jugador */
+	 * la puntuación o similar la extraemos de la clase Jugador 
+	 * @return Devuelve un boolean por si se cumple o no la condición. En el caso de este
+	 * metodo no lo voy a usar posteriormente ya que el metodo actualiza los records
+	 * */
 	public static boolean comprobarDianas(Jugador player) {
 		if (player.calcularDianas() > recordDianas) {
 			System.out.println("\n¡RECORD DE DIANAS!");

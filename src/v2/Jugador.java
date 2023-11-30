@@ -83,8 +83,7 @@ public class Jugador {
 		tecla.nextLine();
 	}
 
-	/**
-	 * Este medodo calcula la puntuacion recorriendo el array global y sumando cada
+	 /** Este medodo calcula la puntuacion recorriendo el array global y sumando cada
 	 * casilla del array puntuacion, lo suma y lo devuelve
 	 * 
 	 * @return Devuelve un int que dice el resultado del jugador
@@ -103,33 +102,37 @@ public class Jugador {
 	 */
 	public void mostrarPuntuacion() {
 		System.out.println("\nPuntuaciones de " + name);
-		System.out.println(Arrays.toString(puntuacion));
-		
-		System.out.println("\nLa puntuación total de " + name + " es: " + calcularPuntuacion());
+		System.out.println("Puntuación total de " + name + " es: " + calcularPuntuacion());
 		System.out.println(calcularTiradas());
+		System.out.println("-------> Detalle de la partida <-------");
+		for (int i = 0; i < puntuacion.length; i++) {
+			System.out.println(puntuacion[i]+" | "+resultadosPartida[i]);
+		}
+		
 		//System.out.println("Ha dado a la diana: "+numeroDianas+" veces.\nHa sacado doble: "+numeroDobles+" veces.\nHa sacado triple: "+numerotriples+" veces");
 	}
 	
+	/** Este metodo calcula las tiradas (Dobles, triples o dianas) y muestra cuantas veces he dado a cada una
+	 * Para ello pasamos el array a un string y hacemos las comprobaciones habiendo quitado antes las comas del array
+	 * y las x para comprobarlo sin fallos.
+	 * @return Devuelve un String con las veces que he dado a cada una de las opciones (Diana, doble o triple)
+	 */
 	public String calcularTiradas() {
 		String split = Arrays.toString(resultadosPartida);
 		split = split.replaceAll(",", "");
-		split = split.replaceAll(" ", "");
+		split = split.replaceAll("x", "");
 		int dianas = 0, dobles = 0, triples = 0;
-		String A = "";
 		
 		for (int i = 0; i < split.length(); i++) {
-			A = new StringBuilder(split.charAt(i)).toString();
-			if (A.equals("D")) {
+			char A = split.charAt(i);
+			if (A == ('D')) {
 				dianas++;
-				System.out.println("D");
 			}
-			if (A.equals("x2")) {
+			if (A == ('2')) {
 				dobles++;
-				System.out.println("x2");
 			}
-			if (A.equals("x3")) {
-				dobles++;
-				System.out.println("x3");
+			if (A == ('3')) {
+				triples++;
 			}
 		}
 		return "Ha sacado "+dianas+" dianas.\nHa sacado "+dobles+" dobles.\nHa sacado "+triples+" triples.";
