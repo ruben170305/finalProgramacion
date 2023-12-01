@@ -110,15 +110,18 @@ public class PartidaDardos {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
-		String reinicio = "si";
+		String reinicio;
 		do {
-			int modoJuego;
+			//PEDIMOS LOS NOMBRES DE LOS JUGADORES
 			System.out.print("Introduce tu nombre: ");
 			String name = sc.nextLine();
 			Jugador player1 = new Jugador(name);
 			System.out.print("Introduce tu nombre: ");
 			name = sc.nextLine();
 			Jugador player2 = new Jugador(name);
+			
+			//MENU DEL MODO DE JUEGO
+			int modoJuego;
 			System.out.println("-------------------------");
 			System.out.println("¡Bienvenido a DAWR-DOS1!\nIntroduce el numero del modo al que quieres jugar");
 			System.out.println("1. Partida normal a 10\n2. Partida a 501");

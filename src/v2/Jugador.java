@@ -15,7 +15,11 @@ public class Jugador {
 	private int[] puntuacion = new int[PartidaDardos.numeroDeRondas];
 
 	private String[] resultadosPartida = new String[PartidaDardos.numeroDeRondas];
-
+	
+	/**
+	 * Tenemos el constructor en el para crear los objetos
+	 * @param name Introduce al método el nombre del jugador
+	 */
 	public Jugador(String name) {
 		this.name = name;
 	}

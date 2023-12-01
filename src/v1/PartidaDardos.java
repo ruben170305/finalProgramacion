@@ -11,10 +11,10 @@ import java.util.Scanner;
 public class PartidaDardos {
 
 	private static int puntuacionRecord;
-	private static String nombreJugadorRecord;
+	private static String nombreJugadorRecord = "Aun no se ha superado";
 	
 	private static int recordDianas;
-	private static String jugadorRecordDianas;
+	private static String jugadorRecordDianas = "Aun no se ha superado";
 	
 	/**COMPROBAMOS SI SE HA SUPERADO EL RECORD Y MOSTRAMOS LA INFORMACIÓN
 	 * @param player Recibe un parametro de tipo jugador para luego si necesitamos el nombre
@@ -105,7 +105,8 @@ public class PartidaDardos {
 				System.out.println("Han empatado en el numero de dianas los dos jugadores");
 				comprobarDianas(player1);
 			}
-
+			//Preguntamos si quiere reiniciar y convertimos la respuesta a minusculas para aceptar todas las conbinaciones
+			//posibles de decir "si"
 			System.out.print("\n¿Quieres reiniciar la partida? ");
 			reinicio = sc.nextLine().toLowerCase();
 		} while (reinicio.equals("si"));
