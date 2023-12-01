@@ -138,22 +138,59 @@ public class PartidaDardos {
 				}
 			} else if (modoJuego == 2) {
 				int i = 0;
+				//Llamamos a los metodos correspondientes para jugar partida
+				//Comprobamos que si el primer jugador ha llegado a 501 no juega su partida el segundo jugador
+				//
 				do {
-					player1.jugarTurno(i);
-					if (player1.calcularPuntuacion() >= 501) {
-						System.out.println("El jugador "+player1.getName()+" ha alcanzado 501");
-					} else {
-						player2.jugarTurno(i);
-						i++;
+					if (player1.calcularPuntuacion() < 501 && player2.calcularPuntuacion() < 501) {
+						player1.jugarTurno(i);
 					}
-				} while (player1.calcularPuntuacion() < 501 || player2.calcularPuntuacion() < 501);
-				
+					if (player1.calcularPuntuacion() < 501 && player2.calcularPuntuacion() < 501) {
+						player2.jugarTurno(i);
+					}
+					i++;
+				} while ( player1.calcularPuntuacion() < 501 && player2.calcularPuntuacion() < 501 );
+				System.out.println("Uno de los jugadores ha alcanzado o superado 501 puntos");
+				//Llamamos al metodo mostrar puntuacion
 				player1.mostrarPuntuacion();
 				player2.mostrarPuntuacion();
-			}
+				
+				// COMPROBAMOS QUIEN HA GANADO
+				int puntuacion1 = player1.calcularPuntuacion();
+				int puntuacion2 = player2.calcularPuntuacion();
+				System.out.println("\n");
+				if (puntuacion1 > puntuacion2) {
+					System.out.println("Ha ganado: " + player1.getName());
+				} else if (puntuacion1 < puntuacion2) {
+					System.out.println("Ha ganado: " + player2.getName());
+				} else {
+					System.out.println("Los dos jugadores han conseguido la misma puntuación.\nSe va a guardar el nombre del primer jugador");
+				}
+				
+				// COMPROBAMOS EL NUMERO DE DIANAS
+				System.out.println("\n");
+				int dianasP1 = player1.calcularDianas();
+				int dianasP2 = player2.calcularDianas();
 
+				if (dianasP1 > dianasP2) {
+					System.out.println("Ha dado más veces a la diana: " + player1.getName());
+					comprobarDianas(player1);
+				} else if (dianasP1 < dianasP2) {
+					System.out.println("Ha dado más veces a la diana: " + player2.getName());
+					comprobarDianas(player2);
+				} else {
+					System.out.println("Han empatado en el numero de dianas los dos jugadores.\nSe va a guardar el nombre del primer jugador");
+					comprobarDianas(player1);
+				}
+			}
+			//Preguntamos si quiere reiniciar y convertimos la respuesta a minusculas para aceptar todas las conbinaciones
+			//posibles de decir "si"
 			System.out.print("\n¿Quieres reiniciar la partida? ");
+			sc.nextLine();
 			reinicio = sc.nextLine().toLowerCase();
+			if(!reinicio.equals("si")) {
+				System.out.println("Gracias por jugar a DAWR-DOS1\nEsperamos verte de vuelta pronto.");
+			}
 		} while (reinicio.equals("si"));
 		sc.close();
 

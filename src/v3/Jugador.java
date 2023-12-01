@@ -42,7 +42,7 @@ public class Jugador {
 		Scanner tecla = new Scanner(System.in);
 		resultadosPartida[i]="";
 
-		System.out.println("Turno de " + name + ". Lanza un dardo.");
+		System.out.println("Turno de " + name + ". Lanza sus dardos.");
 		int tresTiradas = 0;
 		int puntuacion = 0, global = 0;
 		do {
@@ -83,6 +83,7 @@ public class Jugador {
 		}while (tresTiradas < 3);
 		System.out.println("La puntuacion obtenida en total es: " + global);
 		this.puntuacion[i] = global;
+		System.out.println("\nPresione enter para continuar");
 		tecla.nextLine();
 	}
 
