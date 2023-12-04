@@ -9,7 +9,6 @@ import java.util.*;
  * 
  */
 public class PartidaDardos {
-
 	private static int puntuacionRecord;
 	private static String nombreJugadorRecord = "Aun no se ha superado";
 	
@@ -67,18 +66,21 @@ public class PartidaDardos {
 		Scanner sc = new Scanner(System.in);
 		String reinicio = "si";
 		do {
-			System.out.println("Introduce tu nombre:");
+			/*
+			 * Pido el nombre de los dos jugadores y creo los objetos usando el constructor
+			 */
+			System.out.println("Introduce el nombre del primer jugador: ");
 			String name = sc.nextLine();
 			Jugador player1 = new Jugador(name);
-			System.out.println("Introduce tu nombre:");
+			System.out.println("Introduce el nombre del segundo jugador: ");
 			name = sc.nextLine();
 			Jugador player2 = new Jugador(name);
-
+			//Llamamos al metodo jugarTurno usando un for para jugar los 10 turnos.
 			for (int i = 0; i < numeroDeRondas; i++) {
 				player1.jugarTurno(i);
 				player2.jugarTurno(i);
 			}
-			
+			//Ahora llamamos al metodo de mostrarPuntuacion
 			player1.mostrarPuntuacion();
 			player2.mostrarPuntuacion();
 

@@ -56,6 +56,7 @@ public class PartidaDardos {
 	 *         actualiza los records
 	 */
 	public static boolean comprobarDianas(Jugador player) {
+		recordDianas = 0;
 		if (player.calcularDianas() > recordDianas) {
 			System.out.println("\n¡RECORD DE DIANAS!");
 			System.out.println("Se ha superado el record registrado.\nActualmente era de " + recordDianas
@@ -87,7 +88,7 @@ public class PartidaDardos {
 			System.out.println("Se ha superado el record registrado.\nActualmente era de " + recordRondas501
 					+ " y pertenecia a " + precordRondas501);
 			recordRondas501 = rondas;
-			jugadorRecordDianas = player.getName();
+			precordRondas501= player.getName();
 			System.out.println("El nuevo record es: " + recordRondas501 + "\nEl record lo ha superado el jugador "
 					+ precordRondas501);
 			return true;
@@ -113,18 +114,19 @@ public class PartidaDardos {
 		String reinicio;
 		do {
 			//PEDIMOS LOS NOMBRES DE LOS JUGADORES
-			System.out.print("Introduce tu nombre: ");
+			System.out.print("Introduce el nombre del primer jugador: ");
 			String name = sc.nextLine();
 			Jugador player1 = new Jugador(name);
-			System.out.print("Introduce tu nombre: ");
+			System.out.print("Introduce el nombre del segundo jugador: ");
 			name = sc.nextLine();
 			Jugador player2 = new Jugador(name);
 			
 			//MENU DEL MODO DE JUEGO
 			int modoJuego;
-			System.out.println("-------------------------");
+			System.out.println("------------------------------");
 			System.out.println("¡Bienvenido a DAWR-DOS1!\nIntroduce el numero del modo al que quieres jugar");
 			System.out.println("1. Partida normal a 10\n2. Partida a 501");
+			System.out.println("------------------------------");
 			System.out.print("\n¿A que modo quieres jugar? ");
 			modoJuego = sc.nextInt();
 
@@ -213,7 +215,7 @@ public class PartidaDardos {
 					System.out.println("Ha dado más veces a la diana: " + player2.getName());
 					comprobarDianas(player2);
 				} else {
-					System.out.println("Han empatado en el numero de dianas los dos jugadores.\nSe va a guardar el nombre del primer jugador");
+					System.out.println("Han empatado en el numero de dianas los dos jugadores. Se va a guardar el nombre del primer jugador");
 					comprobarDianas(player1);
 				}
 			}

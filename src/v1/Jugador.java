@@ -93,9 +93,14 @@ public class Jugador {
 	 * @return Devuelve el entero que es el total de veces que hemos dado a la diana
 	 */
 	public int calcularDianas() {
+		String split = Arrays.toString(resultadosPartida);
+		split = split.replaceAll(",", "");
+		split = split.replaceAll("x", "");
 		int dianas = 0;
-		for (int i = 0; i < resultadosPartida.length; i++) {
-			if(resultadosPartida[i] == "D") {
+		
+		for (int i = 0; i < split.length(); i++) {
+			char A = split.charAt(i);
+			if (A == ('D')) {
 				dianas++;
 			}
 		}

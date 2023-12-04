@@ -61,10 +61,10 @@ public class PartidaDardos {
 		Scanner sc = new Scanner(System.in);
 		String reinicio = "si";
 		do {
-			System.out.println("Introduce tu nombre:");
+			System.out.println("Introduce el nombre del primer jugador: ");
 			String name = sc.nextLine();
 			Jugador player1 = new Jugador(name);
-			System.out.println("Introduce tu nombre:");
+			System.out.println("Introduce el nombre del segundo jugador: ");
 			name = sc.nextLine();
 			Jugador player2 = new Jugador(name);
 
