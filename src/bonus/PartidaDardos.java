@@ -56,7 +56,6 @@ public class PartidaDardos {
 	 *         actualiza los records
 	 */
 	public static boolean comprobarDianas(Jugador player) {
-		recordDianas = 0;
 		if (player.calcularDianas() > recordDianas) {
 			System.out.println("\n¡RECORD DE DIANAS!");
 			System.out.println("Se ha superado el record registrado.\nActualmente era de " + recordDianas

@@ -92,7 +92,8 @@ public class PartidaDardos {
 			Jugador player2 = new Jugador(name);
 			System.out.println("-------------------------");
 			System.out.println("¡Bienvenido a DAWR-DOS1!\nIntroduce el numero del modo al que quieres jugar");
-			System.out.println("1. Partida normal a 10\n2. Partida a 501");
+			System.out.println("1. Partida normal a 10");
+			System.out.println("2. Partida a 501");
 			System.out.print("\n¿A que modo quieres jugar? ");
 			modoJuego = sc.nextInt();
 
